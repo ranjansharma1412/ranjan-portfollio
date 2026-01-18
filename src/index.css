@@ -1,4 +1,9 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+body {
+  font-family: 'Caveat', cursive;
+} */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -7,13 +12,14 @@
 
   color-scheme: light dark;
   color: rgba(51, 50, 50, 0.87);
-  background-color: #f2f7f7;
+  background-color: #fcfced;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* 
 a {
   font-weight: 500;
