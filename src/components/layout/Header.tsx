@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { Phone } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId.toLowerCase());
@@ -11,6 +11,9 @@ const scrollToSection = (sectionId: string) => {
 
 const Header = () => {
   const [active, setActive] = useState('Services');
+  const [isScrolledUp, setIsScrolledUp] = useState(false);
+  const lastScrollY = useRef<number>(0);
+
 
   const navItems = [
     { name: 'Services', id: 'services' },
@@ -19,19 +22,33 @@ const Header = () => {
     { name: 'Experience', id: 'experience' }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      const isScrollingUp = currentScrollY < lastScrollY.current;
+      const passedThreshold = currentScrollY <= 50;
+
+      setIsScrolledUp(!(passedThreshold && isScrollingUp));
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
   return (
     <motion.header
-      className="w-full px-10 py-6"
+      className={`fixed top-0 left-0 w-full z-50 px-10 py-6
+        transition-all duration-300 ease-in-out
+        ${isScrolledUp ? "bg-[#FCFFA8] shadow-lg" : "bg-transparent"}
+      `}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-
-        {/* Logo */}
-        <h1 className="text-2xl font-medium font-[cursive] text-[#1f1f1f]">
-          Ranjan
-        </h1>
-
+      <div className="max-w-7xl mx-auto flex justify-between">
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-10 text-sm">
           {navItems.map((item) => (
@@ -42,10 +59,9 @@ const Header = () => {
                 scrollToSection(item.id);
               }}
               className={`relative px-5 py-2 transition-all
-                ${
-                  active === item.name
-                    ? 'text-[#2f6f5e] border border-[#2f6f5e] rounded-full'
-                    : 'text-[#2b2b2b] hover:text-black'
+                ${active === item.name
+                  ? 'text-[#1cce9e] border border-[#1cce9e] rounded-full font-medium'
+                  : 'text-[#11654f] hover:text-[#1cce9e]'
                 }
               `}
             >

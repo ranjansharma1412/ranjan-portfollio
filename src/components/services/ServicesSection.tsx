@@ -1,33 +1,33 @@
 import { motion } from 'framer-motion';
-import { Monitor, Smartphone, PenTool } from 'lucide-react'; // Clean line icons
+import { Monitor, PenTool, Smartphone } from 'lucide-react'; // Clean line icons
 import { serviceCardVariants } from '../../animations/motionVariants';
 
 const services = [
-  { 
-    title: "Website Design", 
-    projects: "76 Projects", 
+  {
+    title: "Website Design",
+    projects: "76 Projects",
     color: "bg-[#147b74]", // Deep Teal
-    icon: <Monitor className="text-white w-6 h-6" /> 
+    icon: <Monitor className="text-white w-6 h-6" />
   },
-  { 
-    title: "Mobile App Design", 
-    projects: "63 Projects", 
+  {
+    title: "Mobile App Design",
+    projects: "63 Projects",
     color: "bg-[#f0bc4c]", // Golden Yellow
-    icon: <Smartphone className="text-white w-6 h-6" /> 
+    icon: <Smartphone className="text-white w-6 h-6" />
   },
-  { 
-    title: "Brand Identity", 
-    projects: "47 Projects", 
+  {
+    title: "Brand Identity",
+    projects: "47 Projects",
     color: "bg-[#f16643]", // Soft Orange
-    icon: <PenTool className="text-white w-6 h-6" /> 
+    icon: <PenTool className="text-white w-6 h-6" />
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="px-8 py-24 bg-[#faf8f3] grid md:grid-cols-2 gap-16 items-center">
+    <section id="services" className="px-8 py-24 grid md:grid-cols-2 gap-16 items-center bg-[#FCFCED]">
       {/* LEFT SIDE: Service Cards */}
-      <motion.div 
+      <motion.div
         className="space-y-6"
         initial="hidden"
         whileInView="visible"
@@ -67,7 +67,7 @@ const ServicesSection = () => {
           What do I help?
         </h2>
         <p className="mt-8 text-lg text-gray-600 leading-relaxed max-w-md">
-          I help you find solutions and solve problems using 
+          I help you find solutions and solve problems using
           user-centered design to help your business grow.
         </p>
 

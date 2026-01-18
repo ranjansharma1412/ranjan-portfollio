@@ -34,7 +34,7 @@ const experiences: Experience[] = [
 
 const ExperienceTimeline = () => {
   return (
-    <section id="experience" className="bg-[#faf8f3] px-6 py-24">
+    <section id="experience" className="bg-[#FCFCED] px-6 py-24">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-[44px] font-bold text-[#112d42] mb-24 text-center">
           My Work Experience
@@ -46,7 +46,7 @@ const ExperienceTimeline = () => {
 
           <div className="space-y-20">
             {experiences.map((exp, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

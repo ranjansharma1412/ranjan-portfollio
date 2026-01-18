@@ -3,20 +3,20 @@ import { ctaTextVariants } from '../../animations/motionVariants';
 
 const Footer = () => {
   return (
-    <footer className="px-8 py-20 bg-[#f7efe5]">
+    <footer className="px-8 py-20 bg-[#F7FAD4]">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.h2 
+        <motion.h2
           className="text-4xl font-bold"
           variants={ctaTextVariants}
         >
           Let's make something <br /> amazing together.
         </motion.h2>
 
-        <motion.p 
+        <motion.p
           className="mt-4 text-orange-500 font-semibold"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ const Footer = () => {
         </motion.p>
       </motion.div>
 
-      <motion.p 
+      <motion.p
         className="mt-10 text-sm text-gray-500"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import{ useState } from 'react';
+import { useState } from 'react';
 import ProjectCard from './ProjectCard';
 
 const WorksSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const projects = [
     {
       id: 1,
@@ -66,15 +66,15 @@ const WorksSection = () => {
   // ];
 
   return (
-    <section id="works" className="px-8 py-20 bg-gray-50">
-      <motion.div 
+    <section id="works" className="px-8 py-20 bg-[#FCFCED]">
+      <motion.div
         className="flex justify-between items-center mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <motion.h2 
+        <motion.h2
           className="text-4xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,14 +103,14 @@ const WorksSection = () => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="relative overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="flex gap-6 transition-transform duration-500 ease-in-out" 
-             style={{ transform: `translateX(-${currentSlide * 33.33}%)` }}>
+        <div className="flex gap-6 transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 33.33}%)` }}>
           {projects.map((project) => (
             <div key={project.id} className="min-w-[33.33%] px-2">
               <ProjectCard
@@ -123,7 +123,7 @@ const WorksSection = () => {
             </div>
           ))}
         </div>
-        
+
         {/* Dots indicator */}
         <div className="flex justify-center mt-8 space-x-2">
           {projects.map((_, index) => (
