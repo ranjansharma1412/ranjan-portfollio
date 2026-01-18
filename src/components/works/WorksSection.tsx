@@ -8,46 +8,57 @@ const WorksSection = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-commerce Mobile App',
-      description: 'A full-featured shopping application with payment integration and user authentication.',
+      title: 'The Ultimate Mobile Application Security Checklist for 2025',
+      description: `Security isn’t just a requirement—it’s a commitment that begins with the very first line of code and continues throughout the entire app lifecycle. In my latest Medium blog, I share a comprehensive mobile app security checklist based on my real-world experience and ongoing learning. Security is not a one-time task—it's an ongoing process of monitoring, improvement, and a promise to deliver a safer experience to every user. Dive in to discover essential practices and actionable steps that every developer should follow to keep mobile applications secure.`,
       category: 'Mobile App',
-      imageUrl: ''
+      imageUrl: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*sNsYKv2eFgwcMhnfSiP3Ow.png',
+      publish_date: "3 month ago",
+      postLink: "https://medium.com/@ranjansharma1412/the-ultimate-mobile-application-security-checklist-for-2025-021b791a88df"
     },
     {
       id: 2,
-      title: 'Corporate Website',
-      description: 'Modern responsive website for a tech company with CMS integration.',
+      title: 'How to Create Application in React Native with Node.js backend and GraphQL',
+      description: 'If you want to go towards fast application development with the backend, then you become confused. What Framework or Technology should I select? Hence you are right to be here.',
       category: 'Web Design',
-      imageUrl: ''
+      imageUrl: 'https://res.cloudinary.com/djq8viexc/image/upload/v1768738196/graph_ql_aem37i.jpg',
+      publish_date: "6 month ago",
+      postLink: "https://medium.com/@ranjansharma1412/how-to-create-application-in-react-native-with-node-js-backend-and-graphql-f80088cc5fa8"
     },
     {
       id: 3,
-      title: 'Brand Identity System',
-      description: 'Complete branding solution including logo, color palette, and brand guidelines.',
-      category: 'Branding',
-      imageUrl: ''
-    },
-    {
-      id: 4,
-      title: 'Task Management Dashboard',
-      description: 'Interactive dashboard for team collaboration and project management.',
-      category: 'Web App',
-      imageUrl: ''
-    },
-    {
-      id: 5,
-      title: 'Fitness Tracking App',
-      description: 'Health and fitness application with workout plans and progress tracking.',
+      title: 'Certification',
+      description: `I’m excited to share that I’ve completed a certification in Clean Code Practices.
+As developers, prioritizing clean code is not about perfection — it’s about professionalism. 
+Small habits like meaningful naming, simple logic, proper structure, remove unused code and consistency make a huge difference over time.`,
       category: 'Mobile App',
-      imageUrl: ''
+      imageUrl: 'https://media.licdn.com/dms/image/v2/D4D22AQGbv4UO2tsNgw/feedshare-shrink_800/B4DZu_1sHIHYAg-/0/1768450082353?e=1770249600&v=beta&t=K7V0f6Cw7YneDOEhffdfDZ46MEGBDMc0UGm7L7JXT_w',
+      publish_date: "6 month ago",
+      postLink: "https://www.linkedin.com/posts/ranjan-sharma-654379191_im-excited-to-share-that-ive-completed-share-7417417258144071680-rF3u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC0VK2ABt9Cs52_GzSP7kYYRWa6suTTQtNg"
     },
-    {
-      id: 6,
-      title: 'Restaurant Booking System',
-      description: 'Online reservation platform with table management and customer notifications.',
-      category: 'Web App',
-      imageUrl: ''
-    }
+    // {
+    //   id: 4,
+    //   title: 'Task Management Dashboard',
+    //   description: 'Interactive dashboard for team collaboration and project management.',
+    //   category: 'Web App',
+    //   imageUrl: 'https://images.credly.com/size/680x680/images/a32fda3d-7666-430e-8d17-b7abc4cc4207/IBM-Generative-and-Agentic-AI-Foundation.png',
+    //   publish_date: "6 month ago"
+    // },
+    // {
+    //   id: 5,
+    //   title: 'Fitness Tracking App',
+    //   description: 'Health and fitness application with workout plans and progress tracking.',
+    //   category: 'Mobile App',
+    //   imageUrl: '',
+    //   publish_date: "6 month ago"
+    // },
+    // {
+    //   id: 6,
+    //   title: 'Restaurant Booking System',
+    //   description: 'Online reservation platform with table management and customer notifications.',
+    //   category: 'Web App',
+    //   imageUrl: '',
+    //   publish_date: "6 month ago"
+    // }
   ];
 
   const nextSlide = () => {
@@ -64,6 +75,9 @@ const WorksSection = () => {
   //   projects[(currentSlide + 1) % projects.length],
   //   projects[(currentSlide + 2) % projects.length]
   // ];
+  const openInNewTab = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section id="works" className="px-8 py-20 bg-[#FCFCED]">
@@ -75,13 +89,13 @@ const WorksSection = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.h2
-          className="text-4xl font-bold"
+          className="text-[44px] font-bold text-[#112d42] mb-14 text-center uppercase w-full"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          My Personal Projects
+          My Blogs/Posts
         </motion.h2>
         <div className="flex gap-4">
           <motion.button
@@ -116,9 +130,9 @@ const WorksSection = () => {
               <ProjectCard
                 title={project.title}
                 description={project.description}
-                category={project.category}
+                category={project?.publish_date || ''}
                 imageUrl={project.imageUrl}
-                onClick={() => console.log(`View project: ${project.title}`)}
+                onClick={() => openInNewTab(project.postLink)}
               />
             </div>
           ))}

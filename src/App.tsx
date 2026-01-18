@@ -1,8 +1,9 @@
+import EditorialGrid from './components/editorial-card/EditorialGrid';
 import ExperienceTimeline from './components/experience/ExperienceTimeline';
 import HeroSection from './components/hero/HeroSection';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
-import ServicesSection from './components/services/ServicesSection';
+import SkillsSection from './components/skills-section/SkillsSection';
 import WorksSection from './components/works/WorksSection';
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <>
       <Header />
       <HeroSection />
-      <ServicesSection />
+      <SkillsSection />
+      <EditorialGrid />
       <ExperienceTimeline />
       <WorksSection />
       <Footer />

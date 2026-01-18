@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { heroHeadlineVariants, heroImageVariants } from '../../animations/motionVariants';
-import heroImage from '../../assets/images/hero.png';
+import { PersonalDetails } from '../../constants/constants';
 
 const HeroSection = () => {
   return (
@@ -17,7 +17,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0, }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Hey There, <br /> I'm Rnajan
+          Hey There, <br /> I'm {PersonalDetails.name}
         </motion.h2>
 
         <motion.p
@@ -26,7 +26,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          I am a React Native developer with 6+ years of experience building high-quality, offline-first mobile applications. I specialize in app publishing, CI/CD integration, and secure, scalable solutions, with additional experience in Node.js, MongoDB, GraphQL, and Swift UI.
+          {PersonalDetails.short_bio}
         </motion.p>
 
         <motion.div
@@ -36,8 +36,8 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <div>
-            <p className="text-3xl font-bold">6+</p>
-            <span className="text-sm">Years Experience</span>
+            <p className="text-3xl font-bold">{PersonalDetails.experience}</p>
+            <span className="text-sm">{PersonalDetails.experience_text}</span>
           </div>
         </motion.div>
       </motion.div>
@@ -49,9 +49,9 @@ const HeroSection = () => {
         variants={heroImageVariants}
       >
         <img
-          src={heroImage}
+          src={"src/assets/images/ranjan_img.jpg"}
           alt="Rnajan"
-          className="relative z-10 w-80 h-80 rounded-full object-cover shadow-2xl"
+          className="relative z-10 w-80 h-80 rounded-full object-contain bg-white shadow-2xl "
         />
       </motion.div>
     </section>

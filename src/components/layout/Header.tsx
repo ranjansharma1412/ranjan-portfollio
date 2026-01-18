@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { PersonalDetails } from '../../constants/constants';
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId.toLowerCase());
@@ -72,8 +73,8 @@ const Header = () => {
 
         {/* Phone */}
         <div className="flex items-center gap-4 text-sm">
-          <span className="font-medium text-[#1f1f1f]">
-            +001 (313) 345 678
+          <span className="font-bold text-[#11654f]">
+            {PersonalDetails.mobileNo}
           </span>
 
           <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300">

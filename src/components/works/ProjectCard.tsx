@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import React from 'react';
 
 // --- Types ---
 interface Project {
@@ -11,15 +11,15 @@ interface Project {
 }
 
 // --- Project Card Component ---
-const ProjectCard: React.FC<Project & { onClick?: () => void }> = ({ 
-  title, description, category, imageUrl, onClick 
+const ProjectCard: React.FC<Project & { onClick?: () => void }> = ({
+  title, description, category, imageUrl, onClick
 }) => {
   return (
     <motion.div
       onClick={onClick}
       // Mobile: fixed width (280px) | Desktop: fixed width (400px)
       // flex-shrink-0 is CRITICAL for the auto-scroll to work
-      className="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-gray-100 cursor-pointer transition-all duration-500 shadow-sm hover:shadow-xl w-[280px] md:w-[400px] flex-shrink-0"
+      className="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-gray-100 cursor-pointer transition-all duration-500 shadow-sm hover:shadow-xl flex-shrink-0"
     >
       <div className="relative h-48 md:h-64 overflow-hidden">
         {imageUrl ? (
@@ -35,17 +35,13 @@ const ProjectCard: React.FC<Project & { onClick?: () => void }> = ({
           </span>
         </div>
       </div>
-      
+
       <div className="p-6 md:p-8">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-xl md:text-2xl font-bold text-[#112d42]">{title}</h3>
           <ArrowUpRight size={20} className="text-[#112d42] opacity-0 group-hover:opacity-100 transition-opacity hidden md:block" />
         </div>
         <p className="text-gray-500 text-xs md:text-sm line-clamp-2">{description}</p>
-        <div className="mt-4 md:mt-6 pt-4 border-t border-gray-50 flex items-center gap-2">
-          <span className="text-[10px] md:text-[11px] font-bold text-[#112d42] uppercase">View Project</span>
-          <div className="h-px w-6 bg-gray-200 group-hover:w-12 transition-all" />
-        </div>
       </div>
     </motion.div>
   );
@@ -71,7 +67,7 @@ const AutoScrollProjects = () => {
 
       {/* The Marquee Container */}
       <div className="relative flex overflow-hidden">
-        <motion.div 
+        <motion.div
           className="flex gap-6 pr-6" // Gap matches the gap between items
           animate={{
             x: ["0%", "-50%"], // Moves halfway because the list is duplicated

@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { workExperiences } from '../../mockdata/ProductMockData';
+import Tooltip from '../tooltip/Tooltip';
 
 interface Experience {
   company: string;
@@ -34,9 +36,9 @@ const experiences: Experience[] = [
 
 const ExperienceTimeline = () => {
   return (
-    <section id="experience" className="bg-[#FCFCED] px-6 py-24">
+    <section id="experience" className="bg-[#FCFCED] px-6 py-14">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-[44px] font-bold text-[#112d42] mb-24 text-center">
+        <h2 className="text-[44px] font-bold text-[#112d42] mb-14 text-center uppercase">
           My Work Experience
         </h2>
 
@@ -45,7 +47,7 @@ const ExperienceTimeline = () => {
           <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 h-full w-0 border-l-2 border-dashed border-gray-300" />
 
           <div className="space-y-20">
-            {experiences.map((exp, index) => (
+            {workExperiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -55,8 +57,9 @@ const ExperienceTimeline = () => {
               >
                 {/* LEFT: Company & Period */}
                 <div className="hidden md:block text-right pr-12">
-                  <h4 className="text-xl font-bold text-[#112d42] mb-2">{exp.company}</h4>
-                  <p className="text-gray-500 text-sm font-medium">{exp.period}</p>
+                  <h4 className="text-xl font-bold text-[#112d42] mb-2">{exp.company_name}</h4>
+                  <p className="text-gray-500 text-sm font-medium">{`${exp.startDate} - ${exp.endDate}`}</p>
+                  <p className="text-gray-500 text-sm font-medium">{`Location - ${exp.location}`}</p>
                 </div>
 
                 {/* CENTER: The Dashed Circle Dot */}
@@ -67,16 +70,18 @@ const ExperienceTimeline = () => {
                 </div>
 
                 {/* RIGHT: Role & Description */}
-                <div className="pl-6 md:pl-12">
-                  <div className="md:hidden mb-2">
-                    <h4 className="text-lg font-bold text-[#112d42]">{exp.company}</h4>
-                    <p className="text-xs text-gray-500">{exp.period}</p>
+                <Tooltip content={exp.role_description} position="left">
+                  <div className="pl-6 md:pl-12">
+                    <div className="md:hidden mb-2">
+                      <h4 className="text-lg font-bold text-[#112d42]">{exp.role}</h4>
+                      <p className="text-xs text-gray-500">{exp.location}</p>
+                    </div>
+                    <h3 className="text-xl font-bold text-[#112d42] mb-3">{exp.role}</h3>
+                    <p className="text-gray-600 leading-relaxed text-[15px] max-w-lg line-clamp-3">
+                      {exp.role_description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-[#112d42] mb-3">{exp.role}</h3>
-                  <p className="text-gray-600 leading-relaxed text-[15px] max-w-lg">
-                    {exp.description}
-                  </p>
-                </div>
+                </Tooltip>
               </motion.div>
             ))}
           </div>
