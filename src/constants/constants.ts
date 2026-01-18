@@ -6,5 +6,6 @@ export const PersonalDetails = {
     experience: "6+",
     experience_text: "Years Experience",
     email: "ranjansharma1412@gmail.com",
-    linkedIn: "https://www.linkedin.com/in/ranjan-sharma-654379191/"
+    linkedIn: "https://www.linkedin.com/in/ranjan-sharma-654379191/",
+    profilImage: "https://res.cloudinary.com/djq8viexc/image/upload/v1768753849/ranjan_img_dyitpc.jpg"
 }

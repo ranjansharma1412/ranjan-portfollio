@@ -49,7 +49,7 @@ const HeroSection = () => {
         variants={heroImageVariants}
       >
         <img
-          src={"src/assets/images/ranjan_img.jpg"}
+          src={PersonalDetails.profilImage}
           alt="Rnajan"
           className="relative z-10 w-80 h-80 rounded-full object-contain bg-white shadow-2xl "
         />

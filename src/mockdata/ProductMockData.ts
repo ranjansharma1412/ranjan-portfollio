@@ -15,7 +15,7 @@ export const projectsCards = [
                     e) Get personalised offers on your mobile
                     f) Service At Your Convenience: Avail banking services from the comfort of your home. You can locate an ATM, stop or check status of your cheque, order a cheque book, track your service requests and more.`,
             category: "Banking",
-            image: "src/assets/images/boi_omine_nio_mobile.png",
+            image: "https://res.cloudinary.com/djq8viexc/image/upload/v1768753848/boi_omine_nio_mobile_mdx7xb.png",
             span: 5,
         },
         {
@@ -23,7 +23,7 @@ export const projectsCards = [
             title: "BOI Online Omni Neo Internet Banking",
             description: `Bank of India (BOI) net banking services, known as the BOI Online Omni Neo Internet Banking, are accessible through the official BOI Online portal. The older "Starconnect" system has been discontinued, and users must use the new Omni Neo platform for both internet and mobile banking services.`,
             category: "Banking",
-            image: "src/assets/images/boi_netbanking.png",
+            image: "https://res.cloudinary.com/djq8viexc/image/upload/v1768753849/boi_netbanking_parivy.png",
             span: 4,
         },
     ],
@@ -37,7 +37,7 @@ export const projectsCards = [
                     Often, this means that the company has to use different types of tools for this, as the diversity in the way to record time is great.
                     With Zenegy Time, you get the ultimate tool for time and job recording that covers the entire company's needs and can be adapted`,
             category: "Payroll",
-            image: "src/assets/images/zenegy_time.png",
+            image: "https://res.cloudinary.com/djq8viexc/image/upload/v1768753849/zenegy_time_dptdyp.png",
             span: 4,
         },
         {
@@ -58,7 +58,7 @@ export const projectsCards = [
                     The heart rate intensity is the average heart effort or load (a.k.a. heart rate zone) on a scale of 0 to 5 (max.) The heart rate load is the aggregate heart rate intensity aggregated over the session time. Your horse’s fitness is improving if you can do the same training with lower heart rate intensity and lower heart rate load.
                     Look for more features in forthcoming app releases.`,
             category: "Training",
-            image: "src/assets/images/ruxbury.png",
+            image: "https://res.cloudinary.com/djq8viexc/image/upload/v1768753849/ruxbury_v7pn7h.png",
             span: 5,
         },
     ],
