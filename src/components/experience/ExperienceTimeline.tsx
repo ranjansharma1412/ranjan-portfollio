@@ -2,38 +2,6 @@ import { motion } from 'framer-motion';
 import { workExperiences } from '../../mockdata/ProductMockData';
 import Tooltip from '../tooltip/Tooltip';
 
-interface Experience {
-  company: string;
-  period: string;
-  role: string;
-  description: string;
-  color: string;
-}
-
-const experiences: Experience[] = [
-  {
-    company: 'Self-Employed, Brisbane',
-    period: 'Sep 2016 – Aug 2014',
-    role: 'Visual Designer',
-    description: 'A visual designer designs for a variety of platforms, which may include Internet and intranet sites, games, movies, kiosks and wearables.',
-    color: 'bg-[#147b74]', // Teal
-  },
-  {
-    company: 'New Man Services',
-    period: 'Jan 17 – Mar 2018',
-    role: 'UI/UX Designer',
-    description: 'User interface design focuses on building intuitive interfaces for software, computers, and mobile devices.',
-    color: 'bg-[#f16643]', // Orange
-  },
-  {
-    company: 'Global Solution',
-    period: 'Feb 2019 – Mar 2020',
-    role: 'Sr. Product Designer',
-    description: 'Product designer focused on research, usability, and visual consistency across platforms.',
-    color: 'bg-[#f0bc4c]', // Yellow
-  },
-];
-
 const ExperienceTimeline = () => {
   return (
     <section id="experience" className="bg-[#FCFCED] px-6 py-14">

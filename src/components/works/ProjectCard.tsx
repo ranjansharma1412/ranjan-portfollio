@@ -47,49 +47,4 @@ const ProjectCard: React.FC<Project & { onClick?: () => void }> = ({
   );
 };
 
-// --- Main Section with Auto-Scroll ---
-const AutoScrollProjects = () => {
-  const projects: Project[] = [
-    { title: "E-Commerce App", category: "Mobile", description: "A high-end fashion store mobile application." },
-    { title: "Finance Dashboard", category: "Web Design", description: "Complex data visualization for fintech." },
-    { title: "Brand Identity", category: "Branding", description: "Complete visual language for a tech startup." },
-    { title: "Travel Guide", category: "Web App", description: "Interactive map and itinerary planner." },
-  ];
-
-  // We double the array to create a seamless infinite loop
-  const duplicatedProjects = [...projects, ...projects];
-
-  return (
-    <section className="bg-[#faf8f3] py-20 overflow-hidden">
-      <div className="container mx-auto px-6 mb-12">
-        <h2 className="text-4xl font-bold text-[#112d42]">Selected Works</h2>
-      </div>
-
-      {/* The Marquee Container */}
-      <div className="relative flex overflow-hidden">
-        <motion.div
-          className="flex gap-6 pr-6" // Gap matches the gap between items
-          animate={{
-            x: ["0%", "-50%"], // Moves halfway because the list is duplicated
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 25, // Adjust speed here (higher = slower)
-              ease: "linear",
-            },
-          }}
-          // Pause on hover for better UX
-          whileHover={{ animationPlayState: "paused" }}
-        >
-          {duplicatedProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 export default ProjectCard;
