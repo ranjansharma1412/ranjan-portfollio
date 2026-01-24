@@ -12,16 +12,16 @@ const ExperienceTimeline = () => {
 
         <div className="relative">
           {/* Vertical Dashed Line */}
-          <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 h-full w-0 border-l-2 border-dashed border-gray-300" />
+          <div className="absolute left-[19px] md:left-1/2 md:-translate-x-1/2 top-0 h-full w-0 border-l-2 border-dashed border-gray-300" />
 
-          <div className="space-y-20">
+          <div className="space-y-12 md:space-y-20">
             {workExperiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative grid grid-cols-[40px_1fr] md:grid-cols-[1fr_100px_1fr] items-start md:items-center"
+                className="relative grid grid-cols-[40px_1fr] md:grid-cols-[1fr_100px_1fr] gap-4 md:gap-0 items-start md:items-center"
               >
                 {/* LEFT: Company & Period */}
                 <div className="hidden md:block text-right pr-12">
@@ -41,8 +41,9 @@ const ExperienceTimeline = () => {
                 <Tooltip content={exp.role_description} position="left">
                   <div className="pl-6 md:pl-12">
                     <div className="md:hidden mb-2">
-                      <h4 className="text-lg font-bold text-[#112d42]">{exp.role}</h4>
-                      <p className="text-xs text-gray-500">{exp.location}</p>
+                      <h4 className="text-lg font-bold text-[#112d42]">{exp.company_name}</h4>
+                      <p className="text-xs text-gray-500 font-medium">{`${exp.startDate} - ${exp.endDate}`}</p>
+                      <p className="text-xs text-gray-500 font-medium">{`Location - ${exp.location}`}</p>
                     </div>
                     <h3 className="text-xl font-bold text-[#112d42] mb-3">{exp.role}</h3>
                     <p className="text-gray-600 leading-relaxed text-[15px] max-w-lg line-clamp-3">
