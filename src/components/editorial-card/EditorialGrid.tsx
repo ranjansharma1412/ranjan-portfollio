@@ -17,7 +17,7 @@ const EditorialGrid = () => {
                     {projectsCards.map((row, rowIndex) => (
                         <div
                             key={rowIndex}
-                            className={`grid ${rowIndex / 2 == 0 ? "grid-cols-[5fr_4fr]" : "grid-cols-[4fr_5fr]"} gap-8 auto-rows-[320px]`}
+                            className={`grid grid-cols-1 ${rowIndex / 2 == 0 ? "md:grid-cols-[5fr_4fr]" : "md:grid-cols-[4fr_5fr]"} gap-8 auto-rows-[320px]`}
                         >
                             {row.map((card) => (
                                 <EditorialCard

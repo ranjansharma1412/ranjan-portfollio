@@ -10,7 +10,7 @@ type TooltipProps = {
 const positionMap = {
     top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
     bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
-    left: "right-full top-1/2 -translate-y-1/2 mr-2",
+    left: "bottom-full left-1/2 -translate-x-1/2 mb-2 md:bottom-auto md:left-auto md:right-full md:top-1/2 md:-translate-y-1/2 md:mr-2",
     right: "left-full top-1/2 -translate-y-1/2 ml-2",
 };
 
