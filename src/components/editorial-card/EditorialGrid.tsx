@@ -11,7 +11,7 @@ const EditorialGrid = () => {
 
     return (
         <>
-            <div className="max-w-7xl mx-auto px-6 py-10 bg-[#FCFCED]">
+            <div id="projects" className="max-w-7xl mx-auto px-6 py-10 bg-[#FCFCED]">
                 <h1 className="text-[44px] font-bold text-[#112d42] mb-14 text-center uppercase">Recents Projects</h1>
                 <div className="space-y-8">
                     {projectsCards.map((row, rowIndex) => (
