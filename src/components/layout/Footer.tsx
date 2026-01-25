@@ -1,9 +1,39 @@
 import { motion } from "framer-motion";
-import { Facebook, Linkedin, Mail, Phone, MapPin, Send, Instagram, Github } from "lucide-react";
+import { Facebook, Linkedin, Mail, Phone, MapPin, Send, Instagram, Github, Loader2 } from "lucide-react";
 import { PersonalDetails } from "../../constants/constants";
+import { useState } from "react";
+import { sendEmail } from "../../utils/emailService";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus({ type: 'error', message: "Please fill in all fields." });
+      return;
+    }
+
+    setLoading(true);
+    setStatus({ type: null, message: "" });
+
+    const result = await sendEmail(formData);
+    setLoading(false);
+
+    if (result.success) {
+      setStatus({ type: 'success', message: "Message sent successfully!" });
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      setStatus({ type: 'error', message: "Failed to send message. Please try again." });
+    }
+  };
 
   return (
     <footer className="bg-[#112d42] text-white pt-20 pb-10 rounded-t-[30px] mt-20">
@@ -28,31 +58,48 @@ const Footer = () => {
               </p>
             </div>
 
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your Name"
                   className="w-full bg-[#1a3b52] border border-[#2a4e69] rounded-xl px-5 py-4 focus:outline-none focus:border-[#1cce9e] transition-colors placeholder:text-gray-500"
                 />
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Your Email"
                   className="w-full bg-[#1a3b52] border border-[#2a4e69] rounded-xl px-5 py-4 focus:outline-none focus:border-[#1cce9e] transition-colors placeholder:text-gray-500"
                 />
               </div>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Message"
                 rows={4}
                 className="w-full bg-[#1a3b52] border border-[#2a4e69] rounded-xl px-5 py-4 focus:outline-none focus:border-[#1cce9e] transition-colors placeholder:text-gray-500 resize-none"
               />
+
+              {status.message && (
+                <div className={`text-sm ${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                  {status.message}
+                </div>
+              )}
+
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-[#1cce9e] text-[#0d4f3d] font-bold px-8 py-4 rounded-xl flex items-center gap-2 hover:bg-[#16b087] transition-colors"
+                disabled={loading}
+                className="bg-[#1cce9e] text-[#0d4f3d] font-bold px-8 py-4 rounded-xl flex items-center gap-2 hover:bg-[#16b087] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
-                <Send size={18} />
+                {loading ? "Sending..." : "Send Message"}
+                {loading ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
               </motion.button>
             </form>
           </motion.div>
