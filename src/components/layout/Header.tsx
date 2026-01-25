@@ -136,9 +136,22 @@ const Header = () => {
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
                 className="fixed top-0 right-0 h-full w-[280px] bg-[#FCFFA8] shadow-2xl z-50 lg:hidden flex flex-col p-6"
               >
-                <div className="flex justify-between items-center mb-10">
-                  <span className="font-bold text-xl text-[#11654f]">Menu</span>
-                  <button onClick={() => setIsMenuOpen(false)} className="p-2 text-[#11654f] hover:bg-black/5 rounded-full transition-colors">
+                <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#11654f]/10">
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <img
+                        src={PersonalDetails.profilImage}
+                        alt={PersonalDetails.name}
+                        className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                      />
+                      <div className="absolute inset-0 rounded-full ring-2 ring-[#1cce9e]/20" />
+                    </div>
+                    <span className="font-bold text-lg text-[#11654f] tracking-tight">{PersonalDetails.name}</span>
+                  </div>
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2 text-[#11654f] hover:bg-black/5 rounded-full transition-colors"
+                  >
                     <X size={24} />
                   </button>
                 </div>
