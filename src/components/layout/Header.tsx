@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { Phone, Menu, X, Download } from 'lucide-react';
 import { useState } from 'react';
 import { PersonalDetails } from '../../constants/constants';
+import { handleResumeDownload } from '../../utils/helperFunctions';
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId.toLowerCase());
@@ -105,14 +106,13 @@ const Header = () => {
           </div>
 
           {/* Download Resume - Desktop */}
-          <a
-            href="/resume.pdf" // Placeholder path
-            download="Ranjan_Sharma_Resume.pdf"
-            className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-[#11654f] text-white rounded-full text-sm font-medium hover:bg-[#0d4f3d] transition-colors shadow-lg shadow-[#11654f]/20"
+          <button
+            onClick={handleResumeDownload}
+            className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-[#11654f] text-white rounded-full text-sm font-medium hover:bg-[#0d4f3d] transition-colors shadow-lg shadow-[#11654f]/20 cursor-pointer"
           >
             Download Resume
             <Download size={16} />
-          </a>
+          </button>
         </div>
 
         {/* Mobile Side Menu */}
@@ -175,14 +175,16 @@ const Header = () => {
                     </div>
                   </div>
 
-                  <a
-                    href="/resume.pdf"
-                    download="Ranjan_Sharma_Resume.pdf"
+                  <button
+                    onClick={() => {
+                      handleResumeDownload();
+                      setIsMenuOpen(false);
+                    }}
                     className="flex items-center justify-center gap-2 px-5 py-3 bg-[#11654f] text-white rounded-xl text-sm font-medium hover:bg-[#0d4f3d] transition-colors shadow-lg shadow-[#11654f]/20"
                   >
                     Download Resume
                     <Download size={18} />
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             </>
