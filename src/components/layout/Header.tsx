@@ -3,6 +3,7 @@ import { Phone, Menu, X, Download } from 'lucide-react';
 import { useState } from 'react';
 import { PersonalDetails } from '../../constants/constants';
 import { handleResumeDownload } from '../../utils/helperFunctions';
+import appLogo from '../../assets/images/app_logo.png';
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId.toLowerCase());
@@ -43,9 +44,10 @@ const Header = () => {
 
   const navItems = [
     { name: 'Services', id: 'services' },
-    { name: 'Works', id: 'works' },
-    { name: 'Notes', id: 'testimonials' },
-    { name: 'Experience', id: 'experience' }
+    { name: 'Skills', id: 'skills' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Blogs', id: 'works' }
   ];
 
   return (
@@ -62,6 +64,11 @@ const Header = () => {
       `}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo - Desktop */}
+        <div className="hidden lg:block">
+          <img src={appLogo} alt="Logo" className="h-10" />
+        </div>
+
         {/* Navigation - Desktop */}
         <nav className="hidden lg:flex items-center gap-10 text-sm">
           {navItems.map((item) => (
@@ -140,13 +147,11 @@ const Header = () => {
                   <div className="flex items-center gap-3">
                     <div className="relative">
                       <img
-                        src={PersonalDetails.profilImage}
-                        alt={PersonalDetails.name}
-                        className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                        src={appLogo}
+                        alt="Logo"
+                        className="h-10"
                       />
-                      <div className="absolute inset-0 rounded-full ring-2 ring-[#1cce9e]/20" />
                     </div>
-                    <span className="font-bold text-lg text-[#11654f] tracking-tight">{PersonalDetails.name}</span>
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}

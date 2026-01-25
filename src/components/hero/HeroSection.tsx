@@ -4,7 +4,7 @@ import { PersonalDetails } from '../../constants/constants';
 
 const HeroSection = () => {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-6 lg:px-12 py-24 lg:py-32 items-center bg-[#F7FAD4]">
+    <section id='services' className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-6 lg:px-12 py-24 lg:py-32 items-center bg-[#F7FAD4]">
       <motion.div
         initial="hidden"
         animate="visible"

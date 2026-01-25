@@ -3,7 +3,7 @@ import { skills } from "../../mockdata/ProductMockData";
 
 const SkillsSection = () => {
     return (
-        <section className="py-20">
+        <section id="skills" className="py-20">
             <div className="max-w-6xl mx-auto px-6">
 
                 {/* Section Title */}
